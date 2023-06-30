@@ -17,6 +17,7 @@ import retrofit2.Response
 
 class PostViewModel(private val pref: UserPreference): ViewModel() {
     val data = MutableLiveData<FileUploadResponse>()
+
     fun setPostStory(token: String,image: MultipartBody.Part,desc : RequestBody) {
         val service = Retrofit.getApiService().postStory("Bearer $token", image,desc)
         service.enqueue(object : Callback<FileUploadResponse> {
@@ -28,6 +29,7 @@ class PostViewModel(private val pref: UserPreference): ViewModel() {
             }
             override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
                 Log.d("Error :",t.message!!)
+
             }
         })
     }

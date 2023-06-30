@@ -21,7 +21,7 @@
         android:theme="@style/Theme.Submission1_Intermediate">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBNyyZnbPSzIY6RYIzVdfbXOs2z2wJsLeE" />
+            android:value="AIzaSyBNFS1yAWk4_D7GsC6pOj92sBAfk0BbPJk" />
 
         <activity
             android:name=".maps.MapsActivity"
@@ -35,16 +35,18 @@
             android:exported="false" />
         <activity
             android:name=".register.RegisterActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
-            android:exported="false" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="false"
+            />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.submission1_intermediate.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_maps"-->
+<!--        android:name="org.d3if2120.MoneyQu.ui.wallet.WalletFragment"-->
+<!--        tools:layout="@layout/fragment_wallet" />-->
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.submission1_intermediate.account.AccountFragment"
+        tools:layout="@layout/fragment_account" />
+
+</navigation>

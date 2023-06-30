@@ -36,7 +36,7 @@ class Adaptor : PagingDataAdapter<story, Adaptor.UserViewHolder>(DIFF_CALLBACK) 
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .centerCrop()
                     .into(rvStory)
-                nama.text = user.name
+                tvNama.text = user.name
 
             }
         }

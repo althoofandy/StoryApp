@@ -34,11 +34,11 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun setupMasuk(){
         val nama = binding.nama.text
-        val email = binding.emailCustom.text
+        val email = binding.etEmail.text
         val pass = binding.passwordCustom.text
         binding.button.setOnClickListener {
             when{
-                nama.isEmpty() -> {
+                nama!!.isEmpty() -> {
                     Toast.makeText(this, "Harap isi nama anda", Toast.LENGTH_LONG).show()
                 }
                 email?.isEmpty()!! -> {
@@ -61,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun setupRegister(){
         binding.apply {
             val nama = binding.nama.text.toString()
-            val email = emailCustom.text.toString()
+            val email = etEmail.text.toString()
             val pass = passwordCustom.text.toString()
             viewModel.register(nama,email,pass)
         }

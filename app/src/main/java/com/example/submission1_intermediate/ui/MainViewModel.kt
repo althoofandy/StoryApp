@@ -21,11 +21,7 @@ class MainViewModel(private val repo: StoryRepo , private val pref: UserPreferen
     fun getListStory(): MutableLiveData<ArrayList<story>> {
         return listUser
     }
-    fun logout() {
-        viewModelScope.launch {
-            pref.logout()
-        }
-    }
+
     fun getUser(): LiveData<UserModel> {
         return pref.getUser().asLiveData()
     }

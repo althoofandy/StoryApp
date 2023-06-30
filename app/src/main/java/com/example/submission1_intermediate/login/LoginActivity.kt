@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this, ViewModelFactory(UserPreference.getInstance(dataStore)))[LoginViewModel::class.java]
-        playAnimation()
         setupMasuk()
         viewModel.getLogin().observe(this) {
             if (it.error) {
@@ -46,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupMasuk(){
-        val email = binding.emailCustom.text
+        val email = binding.etEmail.text
         val pass = binding.passwordCustom.text
         binding.button.setOnClickListener {
             when{
@@ -54,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Harap isi email anda", Toast.LENGTH_LONG).show()
                 }
                 pass?.isEmpty()!! -> {
-                    Toast.makeText(this, "Harap isi password anda", Toast.LENGTH_LONG).show()
+
                 }else->{
                 setupLogin()
                 showLoading(true)
@@ -69,24 +68,11 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun setupLogin(){
             binding.apply {
-                val email = emailCustom.text.toString()
+                val email = etEmail.text.toString()
                 val pass = passwordCustom.text.toString()
                 viewModel.login(email, pass)
+
             }
-    }
-
-
-
-    private fun playAnimation() {
-        val emailEditText = ObjectAnimator.ofFloat(binding.emailCustom, View.ALPHA, 1f).setDuration(500)
-        val passwordEditTextLayout = ObjectAnimator.ofFloat(binding.passwordCustom, View.ALPHA, 1f).setDuration(500)
-        val login = ObjectAnimator.ofFloat(binding.button, View.ALPHA, 1f).setDuration(500)
-        val register = ObjectAnimator.ofFloat(binding.registerBtn, View.ALPHA, 1f).setDuration(500)
-
-        AnimatorSet().apply {
-            playSequentially(emailEditText, passwordEditTextLayout, login,register)
-            startDelay = 500
-        }.start()
     }
     private fun showLoading(loading: Boolean){
         if(loading) {
