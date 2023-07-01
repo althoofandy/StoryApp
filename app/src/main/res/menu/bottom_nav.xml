@@ -4,6 +4,17 @@
         android:id="@+id/navigation_home"
         android:icon="@drawable/baseline_list_24"
         android:title="Story" />
+
+    <item
+        android:id="@+id/navigation_maps"
+        android:icon="@drawable/ic_maps"
+        android:title="Maps" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/ic_add_story"
+        android:title="Add Story" />
+
     <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/baseline_account_circle_24"

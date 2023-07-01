@@ -7,12 +7,16 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.submission1_intermediate.HomeFragment"
+        android:name="com.example.submission1_intermediate.ui.HomeFragment"
         tools:layout="@layout/fragment_home" />
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_maps"-->
-<!--        android:name="org.d3if2120.MoneyQu.ui.wallet.WalletFragment"-->
-<!--        tools:layout="@layout/fragment_wallet" />-->
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.example.submission1_intermediate.maps.MapsFragment"
+        tools:layout="@layout/fragment_maps" />
+    <activity
+        android:id="@+id/navigation_add"
+        android:name="com.example.submission1_intermediate.post.PostActivity"
+        tools:layout="@layout/activity_post" />
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.submission1_intermediate.account.AccountFragment"

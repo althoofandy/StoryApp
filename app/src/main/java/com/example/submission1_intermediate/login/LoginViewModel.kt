@@ -9,6 +9,7 @@ import com.example.submission1_intermediate.api.Retrofit
 import com.example.submission1_intermediate.pref.UserModel
 import com.example.submission1_intermediate.pref.UserPreference
 import com.example.submission1_intermediate.response.LoginResponse
+import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,12 +24,13 @@ class LoginViewModel(private val pref: UserPreference):ViewModel() {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if(response.isSuccessful) {
                         data.postValue(response.body())
-                        saveUser(UserModel(response.body()?.loginResult?.token!!,response.body()?.loginResult?.name!!,true))
-                        msg.postValue(response.body()?.message.toString())
+                        saveUser(UserModel(response.body()?.loginResult?.userId!!,response.body()?.loginResult?.token!!,response.body()?.loginResult?.name!!,true))
                     }else{
-                        Log.d("Error :", response.body()?.message.toString())
-                        msg.postValue(response.body()?.message.toString())
-
+                        val errorBody = response.errorBody()?.string()
+                        val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+                        val errorMessage = errorResponse?.message.toString()
+                        Log.d("Error:", errorMessage)
+                        msg.postValue(errorMessage)
                     }
                 }
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

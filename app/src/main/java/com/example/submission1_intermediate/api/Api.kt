@@ -41,4 +41,10 @@ interface Api {
         @Header("Authorization") auth : String,
         @Query("location") location: Int=1
     ): Call<MapsResponse>
+
+    @GET("stories/{id}")
+     fun getStoryPersonal(
+        @Header("Authorization") auth : String,
+        @Path("id") id: String,
+    ): Call<StoryResponse>
 }

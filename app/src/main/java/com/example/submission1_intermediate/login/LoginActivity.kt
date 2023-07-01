@@ -70,7 +70,11 @@ class LoginActivity : AppCompatActivity() {
             binding.apply {
                 val email = etEmail.text.toString()
                 val pass = passwordCustom.text.toString()
-                viewModel.login(email, pass)
+                viewModel.login(email, pass).observe(this@LoginActivity){
+                    Toast.makeText(this@LoginActivity, it, Toast.LENGTH_LONG).show()
+                    showLoading(false)
+                }
+
 
             }
     }

@@ -12,7 +12,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MapsViewModel(private val pref: UserPreference): ViewModel() {
-
     val data = MutableLiveData<ArrayList<MapsStory>>()
     fun getMapsStory(token:String){
         val retro = Retrofit.getApiService().getStoryMaps("Bearer $token")
